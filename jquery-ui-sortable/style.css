@@ -1,0 +1,14 @@
+#table-container {
+  border: 1px solid #333;
+  
+  border-collapse: collapse;
+}
+
+#table-container thead tr th, #table-container tbody tr td {
+  border: 1px solid #333;
+  padding: 5px;
+}
+
+#table-container tbody tr:hover {
+  cursor: move;
+}

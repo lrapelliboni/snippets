@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery ui sorted example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>jquery ui sorted example</h1>
+    <span>Order the items:</span>
+    <table id="table-container">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody class="sort">
+            <tr id="1">
+                <td>1</td>
+                <td>Name1</td>
+                <td>Details1</td>
+            </tr>
+            <tr id="2">
+                <td>2</td>
+                <td>Name1</td>
+                <td>Details2</td>
+            </tr>
+            <tr id="3">
+                <td>3</td>
+                <td>Name1</td>
+                <td>Details3</td>
+            </tr>
+            <tr id="4">
+                <td>4</td>
+                <td>Name1</td>
+                <td>Details4</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script src="jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+    $(document).ready(function () {
+        var sort = function (event, ui) {
+            //var sorted = $(this).sortable("serialize", 'id');
+            //console.log(ui.item[0].id);
+            
+            var itemOrder = $('.sort').sortable("toArray");
+            for (var i = 0; i < itemOrder.length; i++) {
+                console.log("Position: " + i + " ID: " + itemOrder[i]);
+            }     
+            //call Ajax
+        }
+
+        $(".sort").sortable({
+            cursor: 'move',
+            axis: 'y',
+            stop: sort
+        });
+
+    });
+</script>
+
+</html>
